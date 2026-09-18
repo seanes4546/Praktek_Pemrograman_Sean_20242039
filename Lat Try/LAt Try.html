@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Nigga</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+       
+        <style>
+            .carousel-inner img {
+              width: 100%;
+              height: 500px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+     
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="img/waltuh.jpg" alt="logo" style="width:40px;">
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/waltuh.jpg" alt="Los Angeles" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Nigga</h3>
+                    </div>   
+                </div>
+                
+                <div class="carousel-item">
+                    <img src="img/stein.jpg" alt="Chicago" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>   
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/aviv.jpg" alt="New York" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>Tel Aviv</h3>
+                        <p>We love Big Yahu!</p>
+                    </div>   
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+        
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Bootstrap Tutorial</h1>      
+                <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+            </div>
+        </div>
+
+        <div class="alert alert-warning alert-dismissible">
+            <strong>Warning!</strong> You are black!
+        </div>
+
+        <a href="#" role="button" class="btn btn-success">Success</a>
+
+        <div class="container">
+            <h2>Multiple Progress Bars</h2>
+            <p>Create a stacked progress bar by placing multiple bars into the same div with class="progress":</p> 
+            <div class="progress">
+                <div class="progress-bar bg-success" style="width:40%">
+                    Free Space
+                </div>
+                <div class="progress-bar bg-warning" style="width:10%">
+                    Warning
+                </div>
+                <div class="progress-bar bg-danger" style="width:20%">
+                    Danger
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Spinners</h2>
+            <p>To create a spinner/loader, use the <code>.spinner-border</code> class:</p>
+                                                  
+            <div class="spinner-border spinner-border-sm"></div>
+        </div>
+        
+        <div class="card-deck mx-auto" style="width: 1100px; height: 300px;">
+            <div class="card img-fluid">
+                <img src="img/waltuh.jpg" class="card-img-top" alt="Waltuh" style="width:100%; height: 100%;">
+                <div class="card-img-overlay text-center">
+                    <p class="card-text">Some text inside the first card</p>
+                    <nav class="navbar" style="background-color: rgba(128, 0, 128, 0.5);">
+                        <p>Waltuh</p>
+                    </nav>
+                </div>
+                
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the second card</p>
+                </div>
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the third card</p>
+                </div>
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the fourth card</p>
+                </div>
+            </div>  
+        </div>
+        <br>
+
+        <div class="container">
+            <h2>Simple Collapsible</h2>
+            <p>Click on the button to toggle between showing and hiding content.</p>
+            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+            <div id="demo" class="collapse">
+                Nigga
+            </div>
+        </div>
+        <br>
+
+    </body>
+
+</html>
