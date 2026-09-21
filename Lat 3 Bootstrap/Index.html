@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="asset/css/bootstrap.min.css">
         <script src="asset/js/jquery.js"></script>
         <script src="asset/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
         
         <link rel="apple-touch-icon" href="/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
         <link rel="icon" href="/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -38,6 +39,19 @@
                 width: 100%;
                 height: 600px;
             }
+
+            .grid-container1 {
+                display: grid;
+                grid-template-columns: 120px 80px 120px 80px 120px;
+                margin-left:40px;
+            }
+
+            .grid-container2 {
+                display: grid;
+                grid-template-columns: 300px 100px 600px;
+                margin-left: 50px;
+            }
+
         </style>
     </head>
     
@@ -122,7 +136,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <svg class="rounded" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                            <title>Services</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/services.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
@@ -133,7 +147,7 @@
                     
                     <div class="col-lg-4">
                         <svg class="rounded" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                            <title>About</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/waltuh.jpg" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
@@ -144,7 +158,7 @@
                 
                     <div class="col-lg-4">
                         <svg class="rounded" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                            <title>Contact</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/contact.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
@@ -158,37 +172,76 @@
                 <hr class="featurette-divider">
             
                 <div class="row featurette">
-                    <div class="col-md-7">
+                    <div class="col-md-10">
                         <h2 class="featurette-heading">SERVICES<br><span class="text-muted">ALl Of My Sevices!</span></h2>
                         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
                     </div>
             
-                    <div class="col-md-5">
-                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                    <div class="col-md-2">
+                        <svg class="img-fluid mx-auto" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 180x180" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Services</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/services2.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
+                    </div>
+
+                    <div style="width: 100%; background-color: rgb(206, 206, 206); text-align: center;">
+                        <div class="grid-container1">
+                            <div style="text-align: center;">
+                                <h2>Heading</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            </div>
+                            <div>
+                                <p></p>
+                            </div>
+                            <div style="text-align: center;">
+                                <h2>Heading</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            </div>
+                            <div>
+                                <p></p>
+                            </div>
+                            <div style="text-align: center;">
+                                <h2>Heading</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
         
                 <hr class="featurette-divider">
         
                 <div class="row featurette">
-                    <div class="col-md-7 order-md-2">
+                    <div class="col-md-10 order-md-2">
                         <h2 class="featurette-heading">ABOUT<br><span class="text-muted">All About Me!</span></h2>
                         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
                     </div>
 
-                    <div class="col-md-5 order-md-1">
-                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                    <div class="col-md-2 order-md-1">
+                        <svg class="img-fluid mx-auto" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 180x180" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>About</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/about2.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
                     </div>
+                </div>    
+                
+                <div style="width: 100%; background-color: rgb(206, 206, 206);">
+                    <div class="grid-container2">
+                        <div style="text-align: left; background-color: rgb(73, 123, 146);">
+                            <h2>About</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error</p>
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
+                        <div style="text-align: center; background-color: rgb(192, 73, 73);">
+                            <h2>Performance</h2>
+
+                        </div>
+                    </div>
                 </div>
-        
+
                 <hr class="featurette-divider">
         
                 <div class="row featurette">
@@ -198,8 +251,8 @@
                     </div>
 
                     <div class="col-md-2">
-                        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
+                        <svg class="img-fluid mx-auto" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 180x180" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Contact</title>
                             <rect width="100%" height="100%" fill="white"/>
                             <image href="asset/img/contact2.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </svg>
