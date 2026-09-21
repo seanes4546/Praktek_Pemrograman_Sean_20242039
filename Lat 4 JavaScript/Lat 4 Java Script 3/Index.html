@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 
-                <div class="row text-center">
+                <div class="row text-center mx-auto">
                     <div class="col-lg">
                         <h2>Service 1</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -213,22 +213,19 @@
                     </div>
                 </div>    
                 
-                <div style="width: 100%; background-color: rgb(206, 206, 206);">
-                    <div class="grid-container">
-                        <div style="text-align: left; background-color: rgb(73, 123, 146);">
-                            <h2>About</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error</p>
-                        </div>
-                        <div>
-                            <p></p>
-                        </div>
-                        <div style="text-align: center; background-color: rgb(192, 73, 73);">
-                            <h2>Performance</h2>
+                <div class="row mx-auto">
+                    <div class="col-lg-4">
+                        <h2>About</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Sed ut perspiciatis unde omnis iste natus error</p>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <h2>Performance</h2>
                             
-                            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-                            <script>
-                            const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-                            const yValues = [55, 49, 44, 24, 15];
+                        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                        <script>
+                            const xValues = ["1 Star", "2 Star", "3 Star", "4 Star", "5 Star"];
+                            const yValues = [15, 34, 65, 24, 55];
                             const barColors = [
                                 "#b91d47",
                                 "#00aba9",
@@ -236,11 +233,11 @@
                                 "#e8c3b9",
                                 "#1e7145"
                             ];
-                            
+                        
                             const ctx = document.getElementById('myChart');
-                            
+                        
                             new Chart(ctx, {
-                                type: "pie",
+                                type: "bar",
                                 data: {
                                     labels: xValues,
                                     datasets: [{
@@ -250,18 +247,17 @@
                                 },
                                 options: {
                                     plugins: {
-                                        legend: {display:true},
+                                        legend: {display:false},
                                         title: {
-                                            display: true,
-                                            text: "World Wine Production 2018",
+                                            display: false,
+                                            text: "Star Review",
                                             font: {size:16}
                                         }
                                     }
                                 }
-                                });
-                                </script>
+                            });
+                        </script>
 
-                        </div>
                     </div>
                 </div>
 
