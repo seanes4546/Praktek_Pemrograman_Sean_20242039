@@ -10,30 +10,68 @@
         <button onclick="InputFunc1()">Click</button>
 
         <p id="inputnum1"></p>
+        <p id="inputnum2"></p>
+        <p id="inputnum3"></p>
+        <p id="inputnum4"></p>
 
         <script>
             function InputFunc1() {
-                let numInput1, numInput2, numOperaO, numAnswer;
-                let input1 = prompt("Input Number 1:");
+                let numput1, numput2, numOperaO, numAnswer;
+                let input1 = prompt("Input First Number!");
                 if (input1 != null) {
-                    numbt = Number(input1);
-                    if (Number.isNaN(numbt)){
+                    numput1 = Number(input1);
+                    if (Number.isNaN(numput1)){
                         document.getElementById("inputnum1").innerHTML = "Wrong Nigga NaN!";
+                        document.getElementById("inputnum2").innerHTML = "";
+                        document.getElementById("inputnum3").innerHTML = "";
+                        document.getElementById("inputnum4").innerHTML = "";
                     } else {
-                        document.getElementById("inputnum1").innerHTML = "Number: " + numbt;
+                        document.getElementById("inputnum1").innerHTML = "Number 1: " + numput1;
                         InputFunc2()
                     }  
                 } else {
                     document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
+                    document.getElementById("inputnum2").innerHTML = "";
+                    document.getElementById("inputnum3").innerHTML = "";
+                    document.getElementById("inputnum4").innerHTML = "";
                 }
             }
         </script>
 
-        <p id="inputnum2"></p>
-
         <script>
             function InputFunc2() {
-                document.getElementById("inputnum2").innerHTML = "Good Nigga";
+                let input2 = prompt("Input Second Number!");
+                if (input2 != null) {
+                    numput2 = Number(input2);
+                    if (Number.isNaN(numput2)){
+                        document.getElementById("inputnum1").innerHTML = "Wrong Nigga NaN!";
+                        document.getElementById("inputnum2").innerHTML = "";
+                        document.getElementById("inputnum3").innerHTML = "";
+                        document.getElementById("inputnum4").innerHTML = "";
+                    } else {
+                        document.getElementById("inputnum2").innerHTML = "Number 2: " + numput2;
+                        InputFunc3()
+                    }
+                } else {
+                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
+                    document.getElementById("inputnum2").innerHTML = "";
+                    document.getElementById("inputnum3").innerHTML = "";
+                    document.getElementById("inputnum4").innerHTML = "";
+                }
+            }
+        </script>
+
+        <script>
+            function InputFunc3() {
+                let input3 = prompt("Input Operand!");
+                if (input3 != null) {
+                    document.getElementById("inputnum3").innerHTML = "Operand: " + input3;
+                } else {
+                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
+                    document.getElementById("inputnum2").innerHTML = "";
+                    document.getElementById("inputnum3").innerHTML = "";
+                    document.getElementById("inputnum4").innerHTML = "";
+                }
             }
         </script>
 
