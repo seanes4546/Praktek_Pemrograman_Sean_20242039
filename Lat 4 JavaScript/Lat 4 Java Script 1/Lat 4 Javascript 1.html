@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lat Javascript 01</title>
+    </head>
+
+    <body>
+        <h1>Lat Javacript 01 Sean 20242039</h1>
+
+        <button onclick="InputFunc1()">Click</button>
+
+        <p id="inputnum1"></p>
+
+        <script>
+            function InputFunc1() {
+                let numInput1, numInput2, numOperaO, numAnswer;
+                let input1 = prompt("Input Number 1:");
+                if (input1 != null) {
+                    numbt = Number(input1);
+                    if (Number.isNaN(numbt)){
+                        document.getElementById("inputnum1").innerHTML = "Wrong Nigga NaN!";
+                    } else {
+                        document.getElementById("inputnum1").innerHTML = "Number: " + numbt;
+                        InputFunc2()
+                    }  
+                } else {
+                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
+                }
+            }
+        </script>
+
+        <p id="inputnum2"></p>
+
+        <script>
+            function InputFunc2() {
+                document.getElementById("inputnum2").innerHTML = "Good Nigga";
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <button type="button" onclick="Gamb()">Gamble!</button>
+        <p id="gabmle"></p>
+        <p id="gabmlenum"></p>
+        <script>
+            function Gamb(){
+                 let text;
+                 let gambling = Math.floor(Math.random() * 101);
+                 if (gambling <= 90) {
+                    text = "Hello";
+                } else {
+                    text = "Nigga";
+                }
+                document.getElementById("gabmle").innerHTML = text;
+                document.getElementById("gabmlenum").innerHTML = gambling;
+            }
+        </script>
+
+    </body>
+</html>
