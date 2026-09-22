@@ -1,120 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <title>Lat Javascript 01</title>
     </head>
 
     <body>
         <h1>Lat Javacript 01 Sean 20242039</h1>
 
-        <button onclick="InputFunc1()">Click</button>
-
         <p id="inputnum1"></p>
         <p id="inputnum2"></p>
         <p id="inputnum3"></p>
         <p id="inputnum4"></p>
+        
+        <button onclick="InputFunc1()">START</button>
 
         <script>
+            let numput1, numput2, numAnswer;
+            let input1, input2, inputOp;
             function InputFunc1() {
-                let numput1, numput2, numOperaO, numAnswer;
-                let input1 = prompt("Input First Number!");
+                input1 = prompt("Input First Number!");
                 if (input1 != null) {
                     numput1 = Number(input1);
                     if (Number.isNaN(numput1)){
-                        document.getElementById("inputnum1").innerHTML = "Wrong Nigga NaN!";
-                        document.getElementById("inputnum2").innerHTML = "";
-                        document.getElementById("inputnum3").innerHTML = "";
-                        document.getElementById("inputnum4").innerHTML = "";
+                        return clearDisp("Wrong Input Nigga!");
                     } else {
                         document.getElementById("inputnum1").innerHTML = "Number 1: " + numput1;
-                        InputFunc2()
+                        InputFunc2();
                     }  
                 } else {
-                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
-                    document.getElementById("inputnum2").innerHTML = "";
-                    document.getElementById("inputnum3").innerHTML = "";
-                    document.getElementById("inputnum4").innerHTML = "";
+                    return clearDisp("Canceled Nigga!");
                 }
             }
-        </script>
 
-        <script>
             function InputFunc2() {
-                let input2 = prompt("Input Second Number!");
+                input2 = prompt("Input Second Number!");
                 if (input2 != null) {
                     numput2 = Number(input2);
                     if (Number.isNaN(numput2)){
-                        document.getElementById("inputnum1").innerHTML = "Wrong Nigga NaN!";
-                        document.getElementById("inputnum2").innerHTML = "";
-                        document.getElementById("inputnum3").innerHTML = "";
-                        document.getElementById("inputnum4").innerHTML = "";
+                        return clearDisp("Wrong Input Nigga!");
                     } else {
                         document.getElementById("inputnum2").innerHTML = "Number 2: " + numput2;
-                        InputFunc3()
+                        InputFunc3();
                     }
                 } else {
-                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
-                    document.getElementById("inputnum2").innerHTML = "";
-                    document.getElementById("inputnum3").innerHTML = "";
-                    document.getElementById("inputnum4").innerHTML = "";
+                    return clearDisp("Canceled Nigga!");
                 }
             }
-        </script>
 
-        <script>
             function InputFunc3() {
-                let input3 = prompt("Input Operand!");
-                if (input3 != null) {
-                    document.getElementById("inputnum3").innerHTML = "Operand: " + input3;
+                inputOp = prompt("Input Operand(+, -, *, /)!");
+                if (inputOp != null) {
+                    if (inputOp == "+" || inputOp == "-" || inputOp == "*" || inputOp == "/") {
+                        document.getElementById("inputnum3").innerHTML = "Operand: " + inputOp;
+                        InputFunc4();
+                    } else {
+                        return clearDisp("Wrong Input Nigga!");
+                    }    
                 } else {
-                    document.getElementById("inputnum1").innerHTML = "Cancel Nigga!";
-                    document.getElementById("inputnum2").innerHTML = "";
-                    document.getElementById("inputnum3").innerHTML = "";
-                    document.getElementById("inputnum4").innerHTML = "";
+                    return clearDisp("Canceled Nigga!");
                 }
             }
-        </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <button type="button" onclick="Gamb()">Gamble!</button>
-        <p id="gabmle"></p>
-        <p id="gabmlenum"></p>
-        <script>
-            function Gamb(){
-                 let text;
-                 let gambling = Math.floor(Math.random() * 101);
-                 if (gambling <= 90) {
-                    text = "Hello";
-                } else {
-                    text = "Nigga";
+            function InputFunc4() {
+                switch (inputOp) {
+                    case "+":
+                        numAnswer = numput1 + numput2;
+                    break;
+                    case "-":
+                        numAnswer = numput1 - numput2;
+                    break;
+                    case "*":
+                        numAnswer = numput1 * numput2;
+                    break;
+                    case "/":
+                        numAnswer = numput1 / numput2;
+                    break;
                 }
-                document.getElementById("gabmle").innerHTML = text;
-                document.getElementById("gabmlenum").innerHTML = gambling;
+                document.getElementById("inputnum4").innerHTML = "Result: " + numput1 + " " + inputOp + " " + numput2 + " : " + numAnswer;
+                window.alert("Result: " + numAnswer);
+            }
+            
+            function clearDisp(errorMessage){
+                document.getElementById("inputnum1").innerHTML = errorMessage;
+                document.getElementById("inputnum2").innerHTML = "";
+                document.getElementById("inputnum3").innerHTML = "";
+                document.getElementById("inputnum4").innerHTML = "";
             }
         </script>
 
