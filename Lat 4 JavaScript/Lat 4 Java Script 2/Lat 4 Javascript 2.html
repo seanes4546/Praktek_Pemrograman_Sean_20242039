@@ -11,10 +11,12 @@
         <input id="task" placeholder="Add Task">
 
         <button onclick="addTask()">Add</button>
-
+        
         <ul id="list"></ul>
         
         <button onclick="clearAll()">Clear All</button>
+        
+        <p id="saving"></p>
 
         <script>
             let tasks = [];
@@ -55,6 +57,7 @@
 
             function saveTasks() {
                 localStorage.setItem("tasks", JSON.stringify(tasks));
+                document.getElementById("saving").innerHTML = "Saved!";
             }
             
             function loadTasks() {
