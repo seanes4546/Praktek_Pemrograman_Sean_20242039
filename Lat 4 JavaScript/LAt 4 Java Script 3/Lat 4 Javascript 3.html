@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lat Javascript 03</title>
+    </head>
+
+    <body>
+        <h1>Lat Javascript 03 Sean 20242039</h1>
+
+        <h1 id="time">Time : 0</h1>
+
+        <h2 id="state">Stopped</h2>
+
+        <button onclick="startTimer()">START</button>
+        <button onclick="stopTimer()">STOP</button>
+        <button onclick="resetTimer()">RESET</button>
+
+        <script>
+            let timer;
+            let times = 0;
+
+            function startTimer() {
+                if (!timer) {
+                    timer = setInterval(addTime, 1000)
+                }
+                document.getElementById("state").innerHTML = "Start";
+            }
+
+            function addTime() {
+                times ++;
+                document.getElementById("time").innerHTML = "Time : " + times;
+            }
+
+            function stopTimer() {
+                clearInterval(timer);
+                timer = undefined;
+                document.getElementById("state").innerHTML = "Paused";
+            }
+
+            function resetTimer() {
+                //can only reset when paused
+                if (timer === undefined){
+                    times = 0;
+                    document.getElementById("time").innerHTML = "Time : " + times;
+                    document.getElementById("state").innerHTML = "Stopped";  
+                }
+            }
+
+        </script>
+    </body>
+</html>
