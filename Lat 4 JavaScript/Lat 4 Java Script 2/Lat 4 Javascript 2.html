@@ -58,6 +58,7 @@
             function saveTasks() {
                 localStorage.setItem("tasks", JSON.stringify(tasks));
                 document.getElementById("saving").innerHTML = "Saved!";
+                setTimeout(clearDisp, 1000);
             }
             
             function loadTasks() {
@@ -65,6 +66,10 @@
                 if (saved !== null) {
                     tasks = JSON.parse(saved);
                 }
+            }
+
+            function clearDisp() {
+                document.getElementById("saving").innerHTML = "";
             }
 
             loadTasks();
