@@ -9,7 +9,7 @@
         <script src="asset/js/jquery.js"></script>
         <script src="asset/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
-        
+
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -46,6 +46,41 @@
     </head>
     
     <body>
+        <?php
+        $servername = "localhost";
+        $username = "user20242039";
+        $password = "OHIvkK";
+        $dbname = "user20242039";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Koneksi gagal: " . $conn->connect_error);
+        }
+
+        $contents = [];
+        $result = $conn->query("SELECT * FROM web_content");
+        if ($result && $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $contents[$row['section_name']] = $row;
+            }
+        }
+
+        $labels = [];
+        $votes = [];
+
+        $chart_result = $conn->query("SELECT star_label, total_votes FROM review_ratings");
+        if ($chart_result && $chart_result->num_rows > 0) {
+            while($row = $chart_result->fetch_assoc()) {
+                $labels[] = $row['star_label'];
+                $votes[] = (int)$row['total_votes'];
+            }
+        }
+
+        $json_labels = json_encode($labels);
+        $json_votes = json_encode($votes);
+        ?>
+            
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <!-- Logo Navbar -->
@@ -171,8 +206,9 @@
 
                     <div class="row featurette">
                         <div class="col-md-10">
-                            <h2 class="featurette-heading">SERVICES<br><span class="text-muted">All Of My Sevices!</span></h2>
-                            <p class="lead">We provide expert PLC, C++, and Arduino programming to turn hardware concepts into robust, production-ready systems. From factory-grade automation logic to optimized embedded C++ firmware.</p>
+                            <!-- dari DB -->
+                            <h2 class="featurette-heading"><?php echo $contents['services']['title'] ?? 'SERVICES'; ?><br><span class="text-muted">All Of My Services!</span></h2>
+                            <p class="lead"><?php echo $contents['services']['content'] ?? ''; ?></p>
                         </div>
                 
                         <div class="col-md-2">
@@ -207,8 +243,9 @@
 
                     <div class="row featurette">
                         <div class="col-md-10 order-md-2">
-                            <h2 class="featurette-heading">ABOUT<br><span class="text-muted">All About Me!</span></h2>
-                            <p class="lead">We provide expert PLC, C++, and Arduino programming to turn hardware concepts into robust systems. We deliver clean, modular code that scales prototypes and eliminates industrial downtime.</p>
+                            <!-- dari DB -->
+                            <h2 class="featurette-heading"><?php echo $contents['about']['title'] ?? 'ABOUT'; ?><br><span class="text-muted">All About Me!</span></h2>
+                            <p class="lead"><?php echo $contents['about']['content'] ?? ''; ?></p>
                         </div>
 
                         <div class="col-md-2 order-md-1">
@@ -230,10 +267,14 @@
 
                         <!-- Chart -->
                         <div class="col-lg-8">
+
                             <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
                             <script>
-                                const xValues = ["1 Star", "2 Star", "3 Star", "4 Star", "5 Star"];
-                                const yValues = [15, 34, 65, 24, 55];
+                                // Mengambil data dinamis dari PHP menggunakan json_encode
+                                const xValues = <?php echo $json_labels; ?>; 
+                                const yValues = <?php echo $json_votes; ?>;
+                                
                                 const barColors = [
                                     "#b91d47",
                                     "#00aba9",
@@ -241,6 +282,7 @@
                                     "#e8c3b9",
                                     "#1e7145"
                                 ];
+                                
                                 const ctx = document.getElementById('myChart');
                                 new Chart(ctx, {
                                     type: "bar",
@@ -263,19 +305,20 @@
                                     }
                                 });
                             </script>
+
                         </div>
                     </div>
                 </section>
 
                 <!-- Contact -->
-
                 <section id="contact">
                     <hr class="featurette-divider">
 
                     <div class="row featurette">
                         <div class="col-md-10">
-                            <h2 class="featurette-heading">CONTACT<br><span class="text-muted">Contact Us!</span></h2>
-                            <p class="lead">Ready to build your next system? Get in touch for expert PLC, C++, and Arduino programming that turns hardware concepts into robust reality, eliminates industrial downtime, and scales prototypes seamlessly.</p>
+                            <!-- dari DB -->
+                            <h2 class="featurette-heading"><?php echo $contents['contact']['title'] ?? 'CONTACT'; ?><br><span class="text-muted">Contact Us!</span></h2>
+                            <p class="lead"><?php echo $contents['contact']['content'] ?? ''; ?></p>
                         </div>
 
                         <div class="col-md-2">
@@ -287,17 +330,17 @@
                         </div>
 
                         <div style="width: 100%;">
-                            <form action="/action_page.php">
+                            <form action="actionsubmit.php" method="post">
                                 <div style="text-align: center;">
-                                    <input style="width: 50%; height:25px; border: 1px solid black; border-radius: 3px;" type="text" id="fname" placeholder=" Username" required>
+                                    <input style="width: 50%; height:25px; border: 1px solid black; border-radius: 3px;" type="text" name="fname" placeholder=" Username" required>
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <input style="width: 50%; height:25px; border: 1px solid black; border-radius: 3px; margin-top: 20px;" type="text" id="femail" placeholder=" E-mail" required>
+                                    <input style="width: 50%; height:25px; border: 1px solid black; border-radius: 3px; margin-top: 20px;" type="text" name="femail" placeholder=" E-mail" required>
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <textarea style="width: 80%; height:100px; border: 1px solid black; border-radius: 5px; margin-top: 20px;" id="fcomment" placeholder=" Comment"></textarea>
+                                    <textarea style="width: 80%; height:100px; border: 1px solid black; border-radius: 5px; margin-top: 20px;" name="fcomment" placeholder=" Comment"></textarea>
                                 </div>
                                 
                                 <input type="submit" value="Submit" style="width: 100px; margin-left: 10%; margin-top: 20px;" class="btn btn-success">
@@ -348,7 +391,5 @@
             observer.observe(section);
             });
         </script>
-
     </body>
-
 </html>
